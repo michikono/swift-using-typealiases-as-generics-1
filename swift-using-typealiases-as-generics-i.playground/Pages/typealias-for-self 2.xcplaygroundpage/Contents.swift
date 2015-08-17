@@ -4,10 +4,10 @@
 //: [Previous](@previous)
 
 protocol Material {}
-class Wood: Material {}
-class Glass: Material {}
-class Metal: Material {}
-class Cotton: Material {}
+struct Wood: Material {}
+struct Glass: Material {}
+struct Metal: Material {}
+struct Cotton: Material {}
 
 //: Alternate method for creating a factory -- we changed `factory()` to return `Self` instead of `T`
 
