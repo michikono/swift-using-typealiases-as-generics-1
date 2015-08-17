@@ -1,5 +1,5 @@
-//: Typealiases for Self
-//: ====================
+//: Typealias for Self - limitations with structs
+//: =============================================
 
 //: [Previous](@previous)
 
@@ -9,7 +9,7 @@ class Glass: Material {}
 class Metal: Material {}
 class Cotton: Material {}
 
-//: Alternate method for creating a factory
+//: Alternate method for creating a factory -- we changed `factory()` to return `Self` instead of `T`
 
 protocol Furniture {
     typealias M: Material
@@ -17,10 +17,12 @@ protocol Furniture {
     
     func mainMaterial() -> M
     func secondaryMaterial() -> M2
-    static func factory() -> Self
+    static func factory() -> Self // <=====
 }
 
-final class Chair: Furniture {
+//: still works
+
+struct Chair: Furniture {
     func mainMaterial() -> Wood {
         return Wood()
     }
@@ -32,17 +34,19 @@ final class Chair: Furniture {
     }
 }
 
-//: Notice here that "Chair" can not be the return type for factory(). Change Chair => Lamp to fix this error
-final class Lamp: Furniture {
+//: **This next code snippet will not compile -- which is good!**
+
+//: Notice here that `Chair` can not be the return type for `factory()`. Change `Chair` => `Lamp` to fix this error
+
+struct Lamp: Furniture {
     func mainMaterial() -> Glass {
         return Glass()
     }
     func secondaryMaterial() -> Metal {
         return Metal()
     }
-    // change Chair => Lamp to fix this error
     static func factory() -> Chair {
-        return Chair()
+        return Chair() // <== this is not what we intended!
     }
 }
 

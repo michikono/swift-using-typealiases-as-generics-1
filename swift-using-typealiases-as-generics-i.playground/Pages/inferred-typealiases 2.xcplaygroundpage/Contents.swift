@@ -3,13 +3,14 @@
 
 //: [Previous](@previous)
 
+//: `mainMaterial()` and `secondaryMaterial()` must return the same types
 protocol Furniture {
     typealias M
-    func mainMaterial() -> M
-    func secondaryMaterial() -> M
+    func mainMaterial() -> M // <====
+    func secondaryMaterial() -> M // <====
 }
 
-class Chair: Furniture {
+struct Chair: Furniture {
     func mainMaterial() -> String {
         return "Wood"
     }
@@ -18,7 +19,7 @@ class Chair: Furniture {
     }
 }
 
-class Lamp: Furniture {
+struct Lamp: Furniture {
     func mainMaterial() -> Bool {
         return true
     }
@@ -29,8 +30,8 @@ class Lamp: Furniture {
 
 //: **This next code snippet will not compile**
 
-// Error: Type 'Stool' does not conform to protocol 'Furniture'
-class Stool: Furniture {
+// Error: Type `Stool` does not conform to protocol `Furniture`
+struct Stool: Furniture {
     func mainMaterial() -> String {
         return "Wood"
     }

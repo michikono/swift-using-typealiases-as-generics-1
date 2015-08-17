@@ -9,7 +9,7 @@ protocol Furniture {
     func secondaryMaterial() -> M
 }
 
-class Chair: Furniture {
+struct Chair: Furniture {
     func mainMaterial() -> String {
         return "Wood"
     }
@@ -18,7 +18,7 @@ class Chair: Furniture {
     }
 }
 
-class Lamp: Furniture {
+struct Lamp: Furniture {
     func mainMaterial() -> Bool {
         return true
     }

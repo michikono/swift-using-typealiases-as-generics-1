@@ -4,19 +4,21 @@
 //: [Previous](@previous)
 
 protocol Material {}
-class Wood: Material {}
-class Glass: Material {}
-class Metal: Material {}
-class Cotton: Material {}
+struct Wood: Material {}
+struct Glass: Material {}
+struct Metal: Material {}
+struct Cotton: Material {}
+
+//: `mainMaterial()` and `secondaryMaterial()` may return _different_ types now
 
 protocol Furniture {
     typealias M: Material
     typealias M2: Material
-    func mainMaterial() -> M
-    func secondaryMaterial() -> M2
+    func mainMaterial() -> M // <====
+    func secondaryMaterial() -> M2 // <====
 }
 
-class Chair: Furniture {
+struct Chair: Furniture {
     func mainMaterial() -> Wood {
         return Wood()
     }
@@ -25,7 +27,7 @@ class Chair: Furniture {
     }
 }
 
-class Lamp: Furniture {
+struct Lamp: Furniture {
     func mainMaterial() -> Glass {
         return Glass()
     }
@@ -33,5 +35,6 @@ class Lamp: Furniture {
         return Metal()
     }
 }
+
 
 //: [Next](@next)
