@@ -11,9 +11,9 @@ struct Cotton: Material {}
 
 protocol HouseholdThing { }
 protocol Furniture: HouseholdThing {
-    typealias M: Material
-    typealias M2: Material
-    typealias T: HouseholdThing
+    associatedtype M: Material
+    associatedtype M2: Material
+    associatedtype T: HouseholdThing
     
     func mainMaterial() -> M
     func secondaryMaterial() -> M2

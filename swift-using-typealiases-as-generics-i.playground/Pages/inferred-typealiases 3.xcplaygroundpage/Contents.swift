@@ -12,8 +12,8 @@ struct Cotton: Material {}
 //: `mainMaterial()` and `secondaryMaterial()` may return _different_ types now
 
 protocol Furniture {
-    typealias M: Material
-    typealias M2: Material
+    associatedtype M: Material
+    associatedtype M2: Material
     func mainMaterial() -> M // <====
     func secondaryMaterial() -> M2 // <====
 }
