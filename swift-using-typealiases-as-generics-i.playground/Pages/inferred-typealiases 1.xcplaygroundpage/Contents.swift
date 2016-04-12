@@ -4,7 +4,7 @@
 //: [Previous](@previous)
 
 protocol Furniture {
-    typealias M
+    associatedtype M
     func mainMaterial() -> M
     func secondaryMaterial() -> M
 }

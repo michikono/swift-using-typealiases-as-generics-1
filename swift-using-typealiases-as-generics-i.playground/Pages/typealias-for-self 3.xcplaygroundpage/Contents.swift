@@ -12,8 +12,8 @@ struct Cotton: Material {}
 //: We changed `factory()` to return `Self` instead of `T`
 
 protocol Furniture {
-    typealias M: Material
-    typealias M2: Material
+    associatedtype M: Material
+    associatedtype M2: Material
     
     func mainMaterial() -> M
     func secondaryMaterial() -> M2

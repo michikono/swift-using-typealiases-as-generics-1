@@ -5,7 +5,7 @@
 
 //: `mainMaterial()` and `secondaryMaterial()` must return the same types
 protocol Furniture {
-    typealias M
+    associatedtype M
     func mainMaterial() -> M // <====
     func secondaryMaterial() -> M // <====
 }
